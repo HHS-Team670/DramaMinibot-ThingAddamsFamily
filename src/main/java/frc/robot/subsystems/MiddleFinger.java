@@ -1,8 +1,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.xrp.XRPMotor;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 
-public class MiddleFinger {
+public class MiddleFinger implements Subsystem {
     private final XRPMotor motor = new XRPMotor(3);
     public int mode = 0;
 

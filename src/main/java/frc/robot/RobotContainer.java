@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.Snap;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.MiddleFinger;
 import frc.robot.subsystems.Thumb;
@@ -53,9 +54,11 @@ public class RobotContainer {
         () -> drivetrain.arcadeDrive(-joystick.getRawAxis(1), -joystick.getRawAxis(0)),
         drivetrain));
 
-    new JoystickButton(joystick, 1).onTrue(new InstantCommand(() -> middleFinger.on()));
-    new JoystickButton(joystick, 2).onTrue(new InstantCommand(() -> middleFinger.reverse()));
-    new JoystickButton(joystick, 3).onTrue(new InstantCommand(() -> middleFinger.off()));
+    new JoystickButton(joystick, 1).onTrue(new Snap(middleFinger));
+      
+    // new JoystickButton(joystick, 1).onTrue(new InstantCommand(() -> middleFinger.on()));
+    // new JoystickButton(joystick, 2).onTrue(new InstantCommand(() -> middleFinger.reverse()));
+    // new JoystickButton(joystick, 3).onTrue(new InstantCommand(() -> middleFinger.off()));
   }
 
   public void robotPeriodic() {
